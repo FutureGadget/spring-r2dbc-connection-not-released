@@ -1,0 +1,29 @@
+spring:
+  r2dbc:
+    pool:
+      enabled: true
+      initial-size: 2
+      validation-query: SELECT 1
+      max-size: 100
+    url: r2dbc:mysql://localhost:3306/test
+    password: root
+    username: root
+
+logging:
+  level:
+    org.springframework.r2dbc: TRACE
+    io.r2dbc.pool: TRACE
+    com.github.jasync: TRACE
+    org.springframework.transaction.interceptor: TRACE
+    reactor.pool: TRACE
+    org.springframework.transaction.reactive: TRACE
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include:
+          - prometheus
