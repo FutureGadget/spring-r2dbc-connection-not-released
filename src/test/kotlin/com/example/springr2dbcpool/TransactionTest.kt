@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicBoolean
  * To run this test, please run docker-compose.yaml included in this project root directory.
  */
 @SpringBootTest
-class DisposeTest {
+class TransactionTest {
     @Autowired
     private lateinit var connectionPool: ConnectionPool
 
@@ -24,7 +24,7 @@ class DisposeTest {
     private lateinit var transactionalOperator: TransactionalOperator
 
     @Test
-    fun `disposing mono should throw`() {
+    fun `connection must be released after transaction finishes`() {
         val executed = AtomicBoolean(false)
         val proxy = TransactionAwareConnectionFactoryProxy(connectionPool)
         val mono = proxy.create()
