@@ -17,8 +17,12 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.jasync-sql:jasync-r2dbc-mysql:2.1.8")
+    implementation("com.github.jasync-sql:jasync-r2dbc-mysql:2.1.9")
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+//    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc") {
+//        exclude("org.springframework", "spring-r2dbc")
+//    }
+//    implementation("org.springframework:spring-r2dbc:5.3.25-SNAPSHOT")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")

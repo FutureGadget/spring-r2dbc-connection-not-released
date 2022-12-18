@@ -6,7 +6,7 @@ import org.hamcrest.core.IsEqual
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.r2dbc.connection.TransactionAwareConnectionFactoryProxy
+import org.springframework.r2dbc.connection.ConnectionFactoryUtils
 import org.springframework.transaction.reactive.TransactionalOperator
 import reactor.kotlin.core.publisher.toMono
 import java.time.Duration
@@ -26,8 +26,8 @@ class TransactionTest {
     @Test
     fun `connection must be released after transaction finishes`() {
         val executed = AtomicBoolean(false)
-        val proxy = TransactionAwareConnectionFactoryProxy(connectionPool)
-        val mono = proxy.create()
+        val mono = ConnectionFactoryUtils.getConnection(connectionPool)
+            .log()
             .flatMap {
                 it.createStatement("SELECT SLEEP(5)")
                     .execute()
