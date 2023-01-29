@@ -5,9 +5,9 @@ spring:
       initial-size: 2
       validation-query: SELECT 1
       max-size: 100
-    url: r2dbc:mysql://localhost:3306/test
+    url: r2dbc:mysql://localhost:33306/mysql_async_tests
+    username: mysql_async
     password: root
-    username: root
 
 logging:
   level:
