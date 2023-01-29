@@ -16,7 +16,7 @@ class PoolConfig {
             builder
                 .option(ConnectionFactoryOptions.CONNECT_TIMEOUT, Duration.ofSeconds(2))
                 .option(
-                    Option.valueOf("queryTimeout"),
+                    Option.valueOf("statementTimeout"),
                     Duration.ofSeconds(3)
                 ).option(
                     PoolingConnectionFactoryProvider.MIN_IDLE, 2
