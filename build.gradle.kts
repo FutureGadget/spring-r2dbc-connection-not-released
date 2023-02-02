@@ -17,7 +17,8 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.jasync-sql:jasync-r2dbc-mysql:2.1.20")
+//    implementation("org.mariadb:r2dbc-mariadb:1.1.3")
+    implementation("com.github.jasync-sql:jasync-r2dbc-mysql:2.1.19")
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
